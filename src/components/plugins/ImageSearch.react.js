@@ -43,7 +43,7 @@ export default class ImageSearch extends Component{
 	render(){
 		let images = this.state.images;
 		let handleRemoveImage = this.handleRemoveImage.bind(this);
-		return (<div className="tab-panel">
+		return (<div className="tab-panel" style={{height: "300px"}}>
 				<table className="search-bar">
 					<tbody>
 							<tr>
