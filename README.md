@@ -61,6 +61,10 @@ class App extends React.Component {
 }
 ```
 	
+数据返回的json格式：
+``` json
+res:{status:'success',data:{image_src:'http://xxx.xxx.com/a.png'}}
+```
 html
 
 ``` html
