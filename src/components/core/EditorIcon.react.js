@@ -32,6 +32,10 @@ class EditorIcon extends React.Component{
 		}
 	}
 	handleClick(e){
+        console.log(e);
+        console.log(e.target);
+        console.log(e.srcElement);
+        console.log(e);
 		e = e || event;
 		let target = e.target || e.srcElement;
 		while(target.className.indexOf("editor-icon")==-1){

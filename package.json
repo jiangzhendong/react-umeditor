@@ -49,7 +49,7 @@
     "open-browser-webpack-plugin": "0.0.2",
     "path": "^0.12.7",
     "prop-types": "^15.6.0",
-    "react": "^0.14.8",
+    "react": "^0.14.9",
     "react-addons-test-utils": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-transform-catch-errors": "^1.0.2",
@@ -74,6 +74,9 @@
   },
   "homepage": "https://github.com/liuhong1happy/react-umeditor#readme",
   "dependencies": {
-    "hmacsha1": "^1.0.0"
+    "browserify": "^16.2.0",
+    "envify": "^4.1.0",
+    "hmacsha1": "^1.0.0",
+    "reactify": "^1.1.1"
   }
 }

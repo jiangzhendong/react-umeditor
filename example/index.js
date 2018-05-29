@@ -13,32 +13,12 @@ class App extends React.Component{
 			}
 		}
 	}
-	getIcons(){
-		return [
-				"source | undo redo | bold italic underline strikethrough fontborder emphasis | ",
-				"paragraph fontfamily fontsize | superscript subscript | ",
-				"forecolor backcolor | removeformat | insertorderedlist insertunorderedlist | selectall | ",
-				"cleardoc  | indent outdent | justifyleft justifycenter justifyright | touppercase tolowercase | ",
-				"horizontal date time  | image spechars | inserttable"
-			]
-	}
+
 	getQiniuUploader(){
 		return {
-			url:'http://upload.qiniu.com',
-			type:'qiniu',
-			name:"file",
-			request: "image_src",
-			qiniu:{
-				app:{
-					Bucket:"liuhong1happy",
-					AK:"l9vEBNTqrz7H03S-SC0qxNWmf0K8amqP6MeYHNni",
-					SK:"eizTTxuA0Kq1YSe2SRdOexJ-tjwGpRnzztsSrLKj"
-				},
-                domain:"http://o9sa2vijj.bkt.clouddn.com",
-                genKey:function(options){
-                    return options.file.type +"-"+ options.file.size +"-"+ options.file.lastModifiedDate.valueOf() +"-"+ new Date().valueOf()+"-"+options.file.name;
-                }
-			}
+            url:'http://127.0.0.1:8083/v5/sgCommunity/story/uploadImage.html',
+            name: 'upload',
+            type: 'local',
 		}
 	}
 	handleFormChange(e){
@@ -58,7 +38,6 @@ class App extends React.Component{
 		alert(form_data.editor);
 	}
 	handleChange(content){
-		console.log(content);
 		var form_data = this.state.form_data;
 		form_data.editor = content;
 		this.setState({
@@ -71,7 +50,6 @@ class App extends React.Component{
 		return Promise.resolve({data: {image_src: image_url}, status: image_url ? 'success' : 'error'})
 	}
 	render(){
-		  var icons = this.getIcons();
 		  var uploader = this.getQiniuUploader();
 		  var plugins = {
 			    image:{
@@ -82,17 +60,15 @@ class App extends React.Component{
 		  var editors = [];
 		  for(var i=0;i<count;i++){
 			    editors.push({
-				      icons:icons,
 				      plugins:plugins
 			    })
 		  }
 		  var form_data = this.state.form_data;
 		  return (<div>
-			        <Editor icons={icons}
+			        <Editor
               plugins={plugins}
               value={form_data.editor}
               defaultValue="<p>React Umeditor</p>"
-              // uploadImageCallback={this.uploadImageCallback}
               onChange={this.handleChange.bind(this)}/>
 		          </div>)
 	}
